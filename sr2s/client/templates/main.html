@@ -1,0 +1,72 @@
+<template name="main">
+
+    <div id="loader">
+        <div id="d1"></div>
+        <div id="d2"></div>
+        <div id="d3"></div>
+        <div id="d4"></div>
+        <div id="d5"></div>
+    </div>
+
+    {{> header}}
+
+    <div class="custom-popup themap" id="map"></div>
+    <div id='errors'></div>
+    <button class="endtracking" id="endtracking" data-action="end-tracking"></button>
+    <button class="add-def" id="add-def" data-action="add-deficiency"></button>
+
+    {{> yield}}
+
+    <div class="def-popup" id="def-form">
+        <div class="def-wrap">
+        	<h3 class="title">Report a problem area along your route</h3>
+            <strong>Select Type Of Problem(s)</strong>
+            <div class="def-option">
+        		<input name="deficiency" type="checkbox" value="pothole" id="pothole" title="pothole" class="deficiency" />
+                <label for="pothole">pothole</label>
+            </div>
+            <div class="def-option">
+                <input name="deficiency" type="checkbox" value="vandalism" id="vandalism" title="vandalism" class="deficiency" />
+                <label for="vandalism">vandalism</label>
+            </div>
+            <div class="def-option">
+                <input name="deficiency" type="checkbox" value="littering" id="littering" title="littering" class="deficiency" />
+                <label for="littering">littering</label>
+            </div>
+            <div class="def-option">
+        		<input name="deficiency" type="checkbox" value="noSidewalk" id="noSidewalk" title="noSidewalk" class="deficiency" />
+                <label for="noSidewalk">no sidewalk</label>
+            </div>
+            <div class="def-option">
+                <input name="deficiency" type="checkbox" value="noMarkedCrosswalk" id="noMarkedCrosswalk" title="noMarkedCrosswalk" class="deficiency" />
+                <label for="noMarkedCrosswalk">no marked crosswalk</label>
+            </div>
+            <div class="def-option other">
+                <label for="otherdescription">other</label>
+                <input type="text" name="otherdescription" id="otherdescription" placeholder="Issue Description" />
+       		</div>
+        	<div id="image-wrapper"></div>
+        	<div class="img-btn-wrap">
+        		<button id="remove-image">Remove Image</button>
+        		<button id="add-image" class="show">Add Image</button>
+        	</div>
+        	<div class="submit-wrap">
+        		<button id="cancel-button">Cancel</button>
+        		<button id="add-button">Report Issue</button>
+        	</div>
+        </div>
+    </div>
+    <div id="img-location">
+        <div class="img-location-wrap">
+            <p><strong>Take a new image or use an image from your photo library?</strong></p>
+            <button id="use-camerabtn">Camera</button>
+            <button id="use-librarybtn">Photo Library</button>
+        </div>
+    </div>
+    <div class="def-popup" id="starting-modal">
+        <a href="{{pathFor 'map'}}" class="exit-modal" data-page="map" data-action="exit-modal">X</a>
+        {{> usingthemap}}
+    </div>
+
+    {{> footer}}
+</template>

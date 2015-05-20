@@ -1,0 +1,9 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48">
+<g>
+	<path fill="none" stroke="#484B4E" stroke-width="1.9" stroke-linecap="square" stroke-miterlimit="10" d="M23.8,1.2
+		c-2,0-3.5,1.7-3.5,3.5c0,2,1.7,3.5,3.5,3.5c2,0,3.5-1.7,3.5-3.5C27.3,2.6,25.6,1,23.8,1.2"/>
+	<path fill="none" stroke="#484B4E" stroke-width="2" stroke-linecap="square" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M31.6,34.9l-2-11v-6.7l2.7,1.3l2.3,6.1h2.9l-1.6-8.1l-7.4-4.8c-0.8-0.9-1.9-1.5-3-1.5c-1.1,0-2.2,0.6-3,1.5L10.2,20l2.8,1.3
+		l8.4-3.8l0.1,7.1l-7.5,22.2h4.2l7.6-16.8l1.8,7.5l7.3,9.1l2.9-1.7L31.6,34.9z"/>
+</g>
+</svg>

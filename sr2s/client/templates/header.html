@@ -1,0 +1,17 @@
+<template name="header">
+	<header>
+		<div class="nav-bg"></div>
+		<input type="checkbox" id="menu-check" />
+		<label id="menu-label" for="menu-check"></label>
+		<nav id="main-nav">
+			<ul class="nav-top-level">
+			  <li><a href="{{pathFor 'home'}}" data-page="start">Start A New Route</a></li>
+				<li><a href="{{pathFor 'map'}}">Map</a></li>
+				<li><a href="{{pathFor 'about'}}" id="about">About</a></li>
+				<li><a href="{{pathFor 'faqs'}}">FAQs</a></li>
+				<li><a href="{{pathFor 'agreement'}}">Privacy</a></li>
+				<li><a href="{{pathFor 'draw'}}" id="draw" data-page="draw">Draw A Route</a></li>
+			</ul>
+		</nav>
+	</header>
+</template>

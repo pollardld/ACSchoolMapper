@@ -1,0 +1,326 @@
+$option_height: 3rem;
+$agreement_height: 2.25rem;
+$inputbg: rgba($pc,0.3125);
+$input_focus_bg: $green;
+
+.heading {
+	background: $pc;
+	display: block;
+	margin: 0 auto $margin;
+	text-align: center;
+}
+
+.walkbike {
+	background: #fff;
+	display: block;
+	height: 100%;
+	left: 0;
+	opacity: 1;
+	overflow: scroll;
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 100%;
+	z-index: 100;
+	@include vendor-prefix(transition, 0.2s opacity ease-in-out);
+
+	&.hide {
+		display: none;
+		opacity: 0;
+	}
+
+	.inputq {
+		margin: 0 0 .75rem;
+		padding: 0 10%;
+	}
+
+	input:focus {
+		outline: 2px solid $green;
+
+		+ label {
+			outline: 2px solid $green;
+		}
+	}
+}
+
+.option-wrap {
+	display: block;
+	height: $option_height;
+	margin: 0 auto 2rem;
+	position: relative;
+	width: 80%;
+}
+
+.school {
+
+	select {
+		background: $inputbg;
+		border: none;
+		border-radius: 0;
+		color: $textColor;
+		font-size: 1em;
+		line-height: $option_height;
+		margin: 0;
+		padding: 0 $padding;
+		text-align: center;
+		width: 100%;
+		@include vendor-prefix(appearance, none);
+	}
+
+	.select2 {
+		font-size: 1em;
+
+		&.select2-container--focus {
+
+			.select2-selection {
+				background: $input_focus_bg;
+				border: 3px solid $green;
+			}
+		}
+
+		.select2-selection {
+			background: $inputbg;
+			border: 3px solid transparent;
+			border-radius: 0;
+			height: $option_height;
+			@include vendor-prefix(transition, 0.2s background ease-in-out);
+		}
+
+		#select2-school-select-container {
+			color: $textColor;
+			font-size: .875em;
+			line-height: $option_height - .25;
+
+			.select2-selection__placeholder {
+				color: $textColor;
+			}
+
+			.select2-selection__clear {
+				font-family: $sans;
+				font-size: 1.5em;
+				margin-left: -12px;
+				padding-right: 12px;
+			}
+		}
+
+		.select2-selection--single {
+
+			.select2-selection__arrow {
+				height: $option_height;
+
+				b {
+					border-color: $textColor transparent;
+					border-width: 6px 6px 0 6px;
+					margin-left: -10px;
+					margin-top: -3px;
+				}
+			}
+		}
+
+		&.select2-container--open {
+			.select2-selection--single {
+				.select2-selection__arrow {
+					b {
+						border-width: 0 6px 6px 6px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.travel-option {
+	border: none;
+	cursor: pointer;
+	display: block;
+	height: 100%;
+	margin: 0;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	z-index: 3;
+
+	&:checked + label {
+		background: $green;
+	}
+}
+
+.travel-option,
+.travel-option-label {
+	width: 24%;
+}
+
+.travel-option-walk,
+.travel-label-walk {
+	left: 0;
+}
+
+.travel-option-bike,
+.travel-label-bike {
+	left: 25.33%;
+}
+
+.travel-option-transit,
+.travel-label-transit {
+	left: 50.66%;
+}
+
+.travel-option-carpool,
+.travel-label-carpool {
+	left: 75.99%;
+}
+
+.travel-option-label {
+	background: $inputbg;
+	height: 100%;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	z-index: 1;
+	@include vendor-prefix(transition, 0.2s all ease-in-out);
+
+	img {
+		max-height: 36px;
+		margin-top: 6px;
+		max-width: 100%;
+	}
+}
+
+.travel-label-bike {
+
+	img {
+		max-height: 42px;
+		margin-top: 6px;
+	}
+}
+
+.grade {
+	height: $option_height;
+
+	label {
+		font-size: .875em;
+		font-weight: $light;
+		margin-right: .5rem;
+	}
+}
+
+#grade {
+	border: none;
+	border-radius: 0;
+	background: $inputbg;
+	color: $textColor;
+	font-size: 1em;
+	height: $option_height;
+	line-height: $option_height;
+	text-align: center;
+	width: $option_height * 2;
+
+	&:focus {
+		background: $input_focus_bg;
+	}
+}
+
+.agreement {
+	height: $agreement_height;
+
+	label {
+		display: block;
+		font-size: .75em;
+		font-weight: $light;
+		line-height: $agreement_height;
+		text-align: left;
+		text-indent: $option_height;
+	}
+}
+
+.agreement-check {
+	height: 100%;
+	left: 0;
+	opacity: 0;
+	position: absolute;
+	width: 3rem;
+	z-index: 1;
+
+	&:checked ~ .agreement-check-style {
+		background: $green;
+		border: 5px solid $pc;
+	}
+}
+
+.agreement-check-style {
+	background: $inputbg;
+	border: 3px solid transparent;
+	display: block;
+	height: $agreement_height;
+	position: absolute;
+	width: $agreement_height;
+	z-index: -1;
+	@include vendor-prefix(transition, 0.2s background ease-in-out);
+}
+
+.init {
+	display: block;
+	margin: 3rem auto $margin;
+}
+
+#init {
+	background: rgba($approve, 0.95);
+	box-shadow: 0 0 1px rgba($approve, 0.4), inset 0 0 0 1px rgba($approve, 0.4);
+	border: none;
+	border-radius: 0;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	font-family: $display;
+	font-size: 1.125em;
+	letter-spacing: .125em;
+	margin: 0 .75rem 0 0;
+	padding: 1rem 2rem .875rem;
+	text-transform: uppercase;
+	@include vendor-prefix(appearance, none);
+	@include vendor-prefix(transition, 0.2s all ease-in-out);
+
+	&:focus {
+		background: $pc;
+	}
+}
+
+.agreement {
+	display: inline-block;
+	font-size: .75em;
+	font-weight: $light;
+}
+
+.help-modal {
+	position: absolute;
+	right: 0;
+	top: 1.5rem;
+
+	a {
+		background: #fff;
+		display: block;
+		font-size: 1.75em;
+		font-weight: $bold;
+		height: 3rem;
+		line-height: 3rem;
+		text-align: center;
+		width: 3rem;
+	}
+}
+
+#terms,
+#help-modal {
+	@include showStep;
+}
+
+.exit-modal {
+	color: $black;
+	font-size: 1.75em;
+	height: 100%;
+	padding: 12% 8% 0% 0;
+	position: fixed;
+	left: 0;
+	text-align: right;
+	width: 100%;
+	z-index: 102;
+}

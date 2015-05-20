@@ -1,0 +1,62 @@
+h1 {
+	font-size: 1.75em;
+}
+
+#add-button,
+#cancel-button,
+#start-form,
+#add-image,
+#remove-image,
+.delete-marker {
+	font-size: .875em;
+	letter-spacing: .025em;
+	padding: .6875rem 1.5rem;
+}
+
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out,
+.endtracking,
+#add-def {
+
+	&:hover {
+		background-color: #f8f8f8;
+	}
+}
+
+header {
+	border-top: 1rem solid rgba($pc, 0.5);
+}
+
+.help-modal {
+	top: 1rem;
+}
+
+.heading {
+	padding-top: 1rem;
+}
+
+#nav-bg,
+#menu-check {
+	top: 1rem;
+}
+
+#menu-label {
+	top: 2.375rem;
+}
+
+.leaflet-draw.leaflet-control,
+.leaflet-container .leaflet-top {
+	top: 4rem;
+}
+
+.endtracking {
+	top: 13.075rem;
+}
+
+#add-def {
+	top: 10.075rem;
+}
+
+.exit-modal {
+	padding: 4% 8% 0 0;
+}

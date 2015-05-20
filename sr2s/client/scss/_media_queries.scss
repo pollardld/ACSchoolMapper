@@ -1,0 +1,90 @@
+@media screen and (min-width: 25em) {
+	@import '25';
+}
+
+@media screen and (min-width: 54em) {
+	@import '54';
+}
+
+@media screen and (min-width: 72em) {
+	@import '72';
+}
+
+// Mobile
+@media screen and (max-device-height: 800px) {
+	@import '800';
+}
+
+/* IPad */
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait) {
+  .map-wrapper {
+    height: 1024px; /* VH fix for ios */
+  }
+}
+
+/* iPad with landscape orientation. */
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape) {
+  .map-wrapper {
+    height: 768px; /* VH fix for ios */
+  }
+}
+
+/* iPhone 6 plus portrait */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation : portrait) {
+	.map-wrapper {
+		// height: 1920px; /* VH fix for ios */
+		height: 736px;
+	}
+}
+
+/* iPhone 6 plus landscape */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation : landscape) {
+	.map-wrapper {
+		// height: 1080px; /* VH fix for ios */
+		height: 414px;
+	}
+}
+
+/* iPhone 6 portrait */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation : portrait) {
+	.map-wrapper {
+		// height: 1334px; /* VH fix for ios */
+		height: 667px;
+	}
+}
+
+/* iPhone 6 landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation : landscape) {
+	.map-wrapper {
+		// height: 750px; /* VH fix for ios */
+		height: 375px;
+	}
+}
+
+/* iPhone 5 portrait */
+@media all and (device-width: 640px) and (device-height: 1136px) and (orientation:portrait) {
+	.map-wrapper {
+		height: 1136px; /* VH fix for ios */
+	}
+}
+
+/* iPhone 5 landscape */
+@media all and (device-width: 640px) and (device-height: 1136px) and (orientation:landscape) {
+  .map-wrapper {
+    height: 640px; /* VH fix for ios */
+  }
+}
+
+/* iPhone 4 portrait */
+@media all and (device-width: 640px) and (device-height: 960px) and (orientation:portrait) {
+	.map-wrapper {
+		height: 960px; /* VH fix for ios */
+	}
+}
+
+/* iPhone 4 landscape */
+@media all and (device-width: 640px) and (device-height: 960px) and (orientation:landscape) {
+  .map-wrapper {
+    height: 640px; /* VH fix for ios */
+  }
+}

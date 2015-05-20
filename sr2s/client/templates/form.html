@@ -1,0 +1,60 @@
+<template name="form">
+    <form class="walkbike" id="walkbike-form">
+        <div class="help-modal">
+            <a href="{{pathFor 'about'}}" data-page="faqs">?</a>
+        </div>
+		<div class="heading">
+			<h1>ACSchoolMapper</h1>
+		</div>
+		<h2 class="inputq">Select the mode(s) of transportation you are using?</h2>
+		<div class="option-wrap travel-style">
+	    	<input type="checkbox" name="method" title="walk" value="walk" id="walk-check" class="travel-option travel-option-walk" />
+            <label class="travel-label-walk travel-option-label" for="walk-check">
+                <img src="img/icon-walk.svg" />
+            </label>
+    		<input type="checkbox" name="method" title="bike" value="bike" id="bike-check" class="travel-option travel-option-bike" />
+            <label class="travel-label-bike travel-option-label" for="bike-check">
+                <img src="img/icon-bike.svg" />
+            </label>
+    		<input type="checkbox" name="method" title="transit" value="transit" id="transit-check" class="travel-option travel-option-transit" />
+            <label class="travel-label-transit travel-option-label" for="transit-check">
+                <img src="img/icon-bus.svg" />
+            </label>
+            <input type="checkbox" name="method" title="carpool" value="carpool" id="carpool-check" class="travel-option travel-option-carpool" />
+            <label class="travel-label-carpool travel-option-label" for="carpool-check">
+                <img src="img/icon-carpool.svg" />
+            </label>
+    	</div>
+    	<h2 class="inputq">Select your destination school?</h2>
+    	<div class="option-wrap school">
+    		<select style="width:100%;" data-placeholder="Select A School" class="select" id="school-select">
+    			<option>Select A School</option>
+    			{{#each schoolOptions}}
+                    <option value="{{value}}">{{name}}</option>
+                {{/each}}
+    		</select>
+    	</div>
+        <h2 class="inputq">Enter your school grade year?</h2>
+        <div class="option-wrap grade">
+            <!-- <label for="grade">grade</label> -->
+            <input name="grade" id="grade" type="number" min="1" max="12" step="1" placeholder="1 - 12">
+        </div>
+    	<!-- <div class="option-wrap agreement">
+    		<input type="checkbox" name="agreement" value="agreed" id="agreement-check" class="agreement-check" required>
+            <span class="agreement-check-style"></span>
+            <label for="agreement-check">I agree </label>
+    	</div> -->
+    	<div class="option-wrap init">
+    		<input type="button" data-name="init-map" id="init" name="submit" value="start" />
+            <div class="agreement">By starting you agree to the <a href="{{pathFor 'about'}}" data-page="about">terms of use</a></div>
+    	</div>
+        <div class="def-popup" id="terms">
+            <a href="{{pathFor 'home'}}" class="exit-modal" data-page="form">X</a>
+            {{> agreement}}
+        </div>
+        <div class="def-popup" id="help-modal">
+            <a href="{{pathFor 'home'}}" class="exit-modal" data-page="form">X</a>
+            {{> gettingstarted}}
+        </div>
+  	</form>
+</template>

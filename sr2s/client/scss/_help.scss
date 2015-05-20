@@ -1,0 +1,14 @@
+#gs-wrap {
+
+}
+
+#gs-check {
+
+	&:checked ~ .getting-started {
+		display: block;
+	}
+}
+
+.getting-started {
+	display: none;
+}

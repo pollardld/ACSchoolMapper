@@ -1,0 +1,102 @@
+.help {
+	background: $pc;
+	display: block;
+	height: 100%;
+	left: 0;
+	margin: 0 auto;
+	overflow: scroll;
+	padding: 3rem 10%;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 2;
+
+	h1 {
+		text-align: center;
+	}
+
+	h2 {
+		font-family: $display;
+	}
+
+	h3 {
+		font-size: 1em;
+		font-weight: $bold;
+		margin-bottom: .5rem;
+	}
+
+	a {
+		color: $textColor;
+		text-decoration: underline;
+	}
+
+	.step {
+		margin-bottom: $margin;
+		overflow: hidden;
+	}
+}
+
+.faqs {
+
+	h2 {
+		font-family: $display;
+	}
+
+	.map-your-location,
+	.map-privacy-buffer,
+	.map-end,
+	.map-issue,
+	.map-school {
+		background-color: transparent;
+		background-size: 100% auto;
+		background-position: 50%;
+		background-repeat: no-repeat;
+		display: inline-block;
+		height: .875rem;
+		margin: 0 .5rem 0 0;
+		vertical-align: middle;
+		width: .875rem;
+	}
+
+	.map-your-location {
+		background-color: $blue;
+		border-radius: 50%;
+		border: 2px solid $textColor;
+	}
+
+	.map-privacy-buffer {
+		background-color: rgba($red, 0.1);
+		border-radius: 50%;
+		border: 1px dashed $red;
+	}
+
+	.map-end {
+		background-image: url('/img/zoom-in.svg');
+		height: 1.25rem;
+		margin: 0 .375rem 0 -.125rem;
+		width: 1.25rem;
+		@include vendor-prefix(transform, rotate(45deg));
+	}
+
+	.map-issue {
+		background-image: url('/img/icon-caution-menu.svg');
+
+	}
+
+	.map-school {
+		background-color: $green;
+		border-radius: 50%;
+		margin: 0 .375rem 0 .125rem;
+		position: relative;
+
+		&:after {
+			background-image: url('img/isometric_finish.svg');
+			content: '';
+			height: 150%;
+			left: -50%;
+			position: absolute;
+			top: -75%;
+			width: 150%;
+		}
+	}
+}

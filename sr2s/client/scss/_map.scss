@@ -1,0 +1,573 @@
+// Map
+#map {
+	bottom: 0;
+  	height: 100%;
+  	left: 0;
+  	position: fixed;
+  	right: 0;
+  	top: 0;
+  	width: 100%;
+  	z-index: 1;
+}
+
+#errors {
+    z-index: 8;
+    opacity: 0;
+    padding: 10px;
+    border-radius: 0 0 3px 3px;
+    background: rgba(0,0,0,.25);
+    top: 90px;
+    left: 80px;
+}
+
+#out:not(:empty) {
+    background: rgba(0,0,0,0.8);
+    bottom: 5%;
+    color: #fff;
+    font-size: .875em;
+    line-height: 1.5em;
+    padding: .125rem .75rem;
+    position: absolute;
+    left: 5vw;
+}
+
+.deficiency-marker {
+	cursor: move;
+}
+
+.current-location-marker {
+	fill: $blue;
+	fill-opacity: .9;
+	stroke: $black;
+	@include vendor-prefix(animation, locater 5s linear infinite);
+}
+
+.leaflet-clickable {
+	stroke: $approve;
+}
+
+.leaflet-clickable.fill-none {
+	fill: none;
+}
+
+.leaflet-clickable.privacy-fill {
+	fill-opacity: 0;
+	stroke-opacity: 0;
+}
+
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out,
+.endtracking,
+#add-def {
+	background-color: rgba(255,255,255,0.9);
+	background-image: url(/img/toolbar-sprite.svg);
+	background-repeat: no-repeat;
+	background-size: 200px 100px;
+	border: none;
+	border-bottom: 1px solid $lightGrey;
+	cursor: pointer;
+	display: block;
+	left: 0;
+	z-index: 2;
+	@include vendor-prefix (transition, 0.2s all ease-in-out);
+
+	&:focus {
+		background-color: rgba(255,255,255,1);
+		border-bottom: 1px solid $green;
+	}
+
+	&.hide {
+		display: none;
+	}
+}
+
+.endtracking,
+#add-def,
+.leaflet-draw.leaflet-control {
+	display: block;
+
+	&.hide {
+		display: none;
+	}
+}
+
+.leaflet-draw.leaflet-control {
+	top: 4.5rem;
+}
+
+.leaflet-bar {
+
+	.leaflet-control-zoom-in {
+		background-color: transparent;
+		background-position: 14px 50%;
+	}
+
+	.leaflet-control-zoom-out {
+		background-color: transparent;
+		background-position: -46px 50%;
+	}
+}
+
+.endtracking,
+#add-def {
+	height: 3rem;
+	padding: 0;
+	position: fixed;
+	width: 3rem;
+}
+
+.endtracking {
+	background-position: -168px 50%;
+	top: 13.575rem;
+}
+
+#add-def {
+	background-size: 250px 125px;
+	background-position: -136px 50%;
+	top: 10.575rem;
+}
+
+.leaflet-dragging {
+
+	#map {
+		opacity: 0.55;
+	}
+}
+
+.leaflet-container {
+	color: $textColor;
+
+	.leaflet-top {
+		border-top: 1px solid $lightGrey;
+		top: 4.5rem;
+
+		.leaflet-control {
+			margin-top: 0px
+		}
+	}
+
+	.leaflet-bottom {
+		bottom: 0;
+		font-size: .75em;
+
+		.leaflet-control {
+			margin-bottom: 10px;
+		}
+	}
+	.leaflet-left {
+		left: 0;
+
+		.leaflet-control {
+			margin-left: 0;
+		}
+	}
+	.leaflet-right {
+		right:0;
+
+		.leaflet-control {
+			margin-right: 8px;
+		}
+	}
+
+	.leaflet-bar {
+		background-color:rgba(255,255,255,0.9);
+		border:none;
+		border-color:rgba(0,0,0,.4);
+		border-radius:0;
+		box-shadow:none;
+
+		a {
+			color: $textColor;
+			border-bottom: 1px solid $lightGrey;
+			height: 3rem;
+			width: 3rem;
+
+			&:hover {
+				border-radius: 0;
+
+				&:last-child {
+					border-bottom: 1px solid $lightGrey;
+				}
+			}
+		}
+	}
+
+	.leaflet-control-zoom-in,
+	.leaflet-control-zoom-out {
+		opacity: 1;
+	}
+
+	.leaflet-popup-content-wrapper {
+		background-color: #fff;
+		border-radius: 0;
+		box-shadow: none;
+		width: 220px;
+
+		.leaflet-popup-content {
+			padding: 1.125rem;
+			font-size: 1.125em;
+
+			.def-option {
+				margin-bottom: 1.125rem;
+				text-align: center;
+			}
+		}
+	}
+
+	.leaflet-popup-tip {
+		border-top: none;
+	}
+
+	h3 {
+		text-align: center;
+	}
+
+	.leaflet-popup-close-button {
+		border-bottom: none;
+		background-position: -4px -62px;
+		background-size: 30px 300px;
+		cursor: pointer;
+		height: 26px;
+		width: 26px;
+	}
+}
+
+.popup-img-wrapper:not(:empty) {
+	display: block;
+	max-height: 120px;
+	overflow: hidden;
+	margin: 0 auto .75rem;
+	position: relative;
+	text-align: center;
+	max-width: 150px;
+
+	.popup-image {
+		max-width: 100%;
+	}
+}
+
+
+// Deficiency Form
+.def-label {
+	display: inline-block;
+	clear: right;
+}
+
+.def-option {
+	display: block;
+	margin: 0 0 .75rem;
+	position: relative;
+	text-align: left;
+}
+
+.submit-wrap,
+.img-btn-wrap {
+	display: block;
+	text-align: center;
+	width: 100%;
+}
+
+.img-btn-wrap {
+	margin-bottom: $margin;
+}
+
+#add-button,
+#cancel-button,
+#start-form,
+#add-image,
+#remove-image,
+.delete-marker,
+#use-camerabtn,
+#use-librarybtn {
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	font-size: .75em;
+	font-weight: $med;
+	letter-spacing: 0.025em;
+	margin: 0 .125rem;
+	padding: .6125rem $padding;
+	text-align: center;
+	text-transform: uppercase;
+	vertical-align: middle;
+	@include vendor-prefix(appearance, none);
+}
+
+#add-button,
+#start-form,
+#use-camerabtn,
+#use-librarybtn {
+	background: rgba($approve, 0.8);
+	box-shadow: 0 0 1px rgba($approve, 0.4), inset 0 0 0 1px rgba($approve, 0.4);
+}
+
+#start-form {
+	font-size: 1.125em;
+	width: 100%;
+	letter-spacing: 0.05em;
+}
+
+#cancel-button {
+	background: rgba($cancel, 0.8);
+}
+
+#add-image {
+	background-image: url('/img/icon-camera.svg');
+	background-size: 14% auto;
+	background-position: 10% 50%;
+	background-repeat: no-repeat;
+	background-color: $pc;
+	color: $black;
+	display: none;
+	padding-left: 2rem;
+
+	&.show {
+		display: inline-block;
+	}
+}
+
+#remove-image {
+	background: $lightRed;
+	color: $textColor;
+	display: none;
+
+	&.show {
+		display: inline-block;
+	}
+}
+
+.delete-marker {
+	background: $red;
+	display: block;
+	font-size: 1em;
+	padding: .6125rem 1.5rem;
+	margin: 0 auto;
+}
+
+.def-popup {
+	background: rgba($cancel, 0.5);
+	display: none;
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 12;
+
+	&.show {
+		display: block;
+		@include vendor-prefix(animation, .3s modale linear);
+	}
+
+	.def-wrap {
+		background: #fff;
+		max-height: 80%;
+		left: 15%;
+		overflow: scroll;
+		padding: $padding;
+		position: fixed;
+		top: 10%;
+		width: 70%;
+		z-index: 13;
+	}
+
+	.title {
+		font-family: $display;
+		font-size: .75em;
+		margin-bottom: .75rem;
+		text-align: center;
+
+		&.image-title {
+			word-wrap: break-word;
+		}
+	}
+
+	strong {
+		display: block;
+		font-size: .8125em;
+		font-weight: $med;
+		margin-bottom: .5rem;
+	}
+
+	.def-option {
+		display: inline-block;
+		font-size: .75em;
+		padding: 0;
+		position: relative;
+		margin: 0 -2px;
+		vertical-align: middle;
+		width: 50%;
+
+		input[type=checkbox] {
+			border: none;
+			height: 100%;
+			left: 0;
+			margin: 0;
+			position: absolute;
+			opacity: 0;
+			top: 0;
+			width: 100%;
+			z-index: 99;
+
+			&:checked + label {
+				background: rgba($approve, 0.2);
+			}
+		}
+
+		label {
+			display: block;
+			font-weight: $light;
+			height: 100%;
+			padding: .5rem .25rem;
+			width: 100%;
+		}
+
+		&:nth-of-type(5) {
+			margin: 0 0 0 -2px;
+			width: 100%;
+		}
+
+		&.other {
+			border-bottom: none;
+			margin-bottom: 1.5rem;
+			width: 100%;
+
+			label {
+				display: inline-block;
+				margin-right: 5%;
+				vertical-align: middle;
+				width: 22%;
+			}
+
+			input[type=text] {
+				border: none;
+				border-bottom: 1px solid $pc;
+				border-radius: 0;
+				color: $textColor;
+				display: inline-block;
+				line-height: 1.5rem;
+				margin-left: -4px;
+				padding: .25rem .5rem;
+				width: 73%;
+
+				&:focus {
+					outline: none;
+					border-bottom: 1px solid $approve;
+				}
+			}
+		}
+	}
+}
+
+// Image location
+#img-location {
+	display: none;
+	z-index: 1;
+
+	&.show {
+		background: rgba($cancel, 0.5);
+		display: block;
+		height: 100%;
+		left: 0;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 14;
+		@include vendor-prefix(animation, .3s modale linear);
+	}
+
+	.img-location-wrap {
+		background: #fff;
+		left: 10%;
+		padding: 1rem;
+		position: fixed;
+		top: 15%;
+		width: 80%;
+		z-index: 14;
+	}
+}
+
+// Camera
+.camera-popup {
+	border-radius: 0;
+	box-shadow: none;
+	padding: 0;
+	left: 15%;
+	margin-left: 0;
+	top: 15%;
+	width: 70%;
+	max-width: 320px;
+
+	#video,
+	.photo-preview {
+		margin-bottom: $margin;
+		width: 100%;
+	}
+
+	button {
+		border: none;
+		border-radius: 0;
+		cursor: pointer;
+		font-family: $sans;
+		font-size: .9125em;
+		font-weight: $med;
+		margin: 0 5px $margin;
+		padding: .6125rem $padding;
+
+		&.shutter,
+		&.use-photo {
+			background: rgba($approve, 0.8);
+			box-shadow: 0 0 1px rgba($approve, 0.4), inset 0 0 0 1px rgba($approve, 0.4);
+		}
+
+		&.cancel {
+			background: rgba($cancel, 0.8);
+		}
+
+		&.new-photo {
+			background: rgba($cancel, 0.9);
+		}
+	}
+}
+
+#image-wrapper:not(:empty) {
+	display: block;
+	max-height: 120px;
+	overflow: hidden;
+	margin: 0 auto .75rem;
+	position: relative;
+	max-width: 150px;
+
+	.camera-image {
+		max-width: 100%;
+	}
+}
+
+#starting-modal {
+	@include showStep;
+
+	&.show {
+		background: rgba(255,255,255, 0.3);
+	}
+
+	.step {
+		background: rgba(255,255,255,0.85);
+	}
+
+	ul {
+		list-style: none;
+
+		li {
+			margin-bottom: 1rem;
+		}
+
+		div {
+			margin-left: -1.5rem;
+		}
+
+		.map-end {
+			margin-left: -1.6125rem;
+		}
+	}
+}

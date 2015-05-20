@@ -1,0 +1,17 @@
+// Map
+#other-input {
+
+	&.show {
+		background: rgba($pc, 0.5);
+	}
+}
+
+.def-popup {
+
+	select {
+		background: rgba($pc, 0.5);
+		border-radius: none;
+		min-height: 2rem;
+		height: 2rem;
+	}
+}

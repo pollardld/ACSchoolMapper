@@ -1,0 +1,168 @@
+* {
+	box-sizing: border-box;
+	font-family: $sans;
+	font-weight: $med;
+	font-weight: normal;
+}
+
+body {
+  	margin: 0;
+  	overflow: hidden;
+  	padding: 0;
+  	position: relative;
+}
+
+main {
+	background: $pc;
+	overflow: hidden;
+	position: relative;
+}
+
+a {
+  color: $textColor;
+  font-weight: $bold;
+  text-decoration: none;
+
+  &:focus {
+    border-bottom: 2px solid rgba(220,140,140,0.8);
+  }
+}
+
+p {
+	font-size: .875em;
+	font-weight: $light;
+	line-height: 1.75em;
+	margin: 0 0 $margin;
+}
+
+ul, ol {
+	margin: 0 0 $margin 0;
+}
+
+li {
+	font-size: .875em;
+	font-weight: $light;
+	line-height: 1.75em;
+	margin-bottom: .75rem;
+}
+
+/* Headers */
+h1 {
+	font-family: $display;
+	font-size: 1.3125em;
+	font-weight: normal;
+	line-height: 3rem;
+	margin: 0 0 2rem;
+}
+
+h2 {
+	font-family: $sans;
+	font-weight: $med;
+	font-size: 1.1875em;
+	letter-spacing: 0.025em;
+	margin: 0 0 $margin;
+}
+
+h3 {
+	color: $textColor;
+	font-size: 1.25em;
+	margin: 0 0 $margin;
+}
+
+h4 {
+	font-size: 1.25;
+}
+
+h5 {
+	font-size: 1.25em;
+	margin: 0 0 .25rem;
+}
+
+// Sweet Alert
+.sweet-alert {
+	border-radius: 0;
+	padding: 20px 10px;
+	top: 45%;
+
+	.sa-icon {
+		margin: 0 auto 10px;
+	}
+
+	h2 {
+		font-size: 1.5em;
+		font-weight: $bold;
+		margin: 0 0 5px;
+	}
+
+	button {
+		border-radius: 0;
+		font-size: .9125em;
+		font-weight: $med;
+		margin: 20px 5px 0;
+		padding: 10px 15px;
+	}
+}
+
+.support {
+	background: $pc;
+	height: 100%;
+	padding: 10%;
+	position: fixed;
+	width: 100%;
+	z-index: 99;
+}
+
+#loader {
+	display: none;
+}
+
+body.loading {
+
+	#loader {
+		display: block;
+		width: 100px;
+	  height: 40px;
+	  margin: -20px 0 0 -50px;
+	  position: fixed;
+	  top: 50%;
+	  left: 50%;
+	  z-index: 999;
+
+	  &:after {
+	  	background: rgba(255,255,255,0.8);
+	  	content: '';
+	  	height: 100%;
+	  	position: fixed;
+	  	left: 0;
+	  	top: 0;
+	  	width: 100%;
+	  	z-index: -1;
+	  }
+
+	  div {
+			width: 20px;
+		  height: 20px;
+			background: $approve;
+		  border-radius: 50%;
+		  position: absolute;
+		}
+
+		#d1 {
+			@include vendor-prefix(animation, loader 2s linear infinite);
+		}
+		#d2 {
+			@include vendor-prefix(animation, loader 2s linear infinite -.4s);
+		}
+		#d3 {
+			@include vendor-prefix(animation, loader 2s linear infinite -.8s);
+		}
+		#d4 {
+			@include vendor-prefix(animation, loader 2s linear infinite -1.2s);
+		}
+		#d5 {
+			@include vendor-prefix(animation, loader 2s linear infinite -1.6s);
+		}
+	}
+
+}
+
