@@ -23,38 +23,18 @@ h1 {
 	}
 }
 
-header {
-	border-top: 1rem solid rgba($pc, 0.5);
-}
-
-.help-modal {
-	top: 1rem;
-}
-
 .heading {
-	padding-top: 1rem;
+	padding-top: 1.5rem;
 }
 
+.help-modal,
 #nav-bg,
 #menu-check {
-	top: 1rem;
+	top: 1.5rem;
 }
 
 #menu-label {
-	top: 2.375rem;
-}
-
-.leaflet-draw.leaflet-control,
-.leaflet-container .leaflet-top {
-	top: 4rem;
-}
-
-.endtracking {
-	top: 13.075rem;
-}
-
-#add-def {
-	top: 10.075rem;
+	top: 2.875rem;
 }
 
 .exit-modal {

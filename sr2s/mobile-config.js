@@ -1,11 +1,11 @@
 App.info({
   id: 'com.pollardldsr2s',
   name: 'ACSchoolMapper',
-  description: 'Alameda County School Mapper application lets you track your routes to school and report any issues you see along the way. AC School Mapper is part of the Safe Routes 2 School program.',
+  description: 'Alameda County School Mapper application lets you track your routes to school and report any issues you see along the way. AC School Mapper is part of the Safe Routes 2 School program. Continued use of GPS running in the background can dramatically decrease battery life.',
   author: 'Alta Planning + Design',
   email: 'davidpollard@altaplanning.com',
   website: 'http://sr2s.meteor.com',
-  version: '0.1.1'
+  version: '0.1.3'
 });
 
 App.accessRule('*');

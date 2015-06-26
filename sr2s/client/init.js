@@ -1,6 +1,7 @@
 map = undefined;
 watch = undefined;
 interval = null;
+privyTimeout = null;
 
 var userMarker, privyBuffer;
 
@@ -49,7 +50,6 @@ if (Meteor.isCordova) {
 Template.main.onRendered( function() {
   mapHelpers.initMap();
   drawHelpers.drawInit();
-  deficiencyBtn = document.getElementById('add-def');
   endTrackingBtn = document.getElementById('endtracking');
   defForm = document.getElementById('def-form');
 });
@@ -73,10 +73,11 @@ Template.main.events({
 
 Template.home.onRendered( function() {
   formHelpers.renderForm();
+  endTrackingBtn = document.getElementById('endtracking');
+  endTrackingBtn.classList.remove('hide');
 });
 
 Template.draw.onRendered( function() {
-  deficiencyBtn = document.getElementById('add-def');
   endTrackingBtn = document.getElementById('endtracking');
   defForm = document.getElementById('def-form');
   endTrackingBtn.classList.add('hide');
@@ -84,7 +85,6 @@ Template.draw.onRendered( function() {
 });
 
 Template.map.onRendered( function() {
-  deficiencyBtn = document.getElementById('add-def');
   endTrackingBtn = document.getElementById('endtracking');
   defForm = document.getElementById('def-form');
   endTrackingBtn.classList.remove('hide');

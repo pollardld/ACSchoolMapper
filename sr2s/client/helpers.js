@@ -1,5 +1,6 @@
 newEntry = {
-	userSpeed : []
+	userSpeed : [],
+	client : {}
 };
 
 newIssue = {
@@ -13,10 +14,14 @@ mapHelpers = {
       	bounds = L.latLngBounds(southWest, northEast);
     map = L.mapbox.map( 'map', 'altaplanning.f3d04a5c', {
 	    minZoom: 9,
-	    maxZoom: 19,
+	    maxZoom: 20,
 	    maxBounds: bounds
 	  }).setView([37.796131, -122.274919], 18);
 	  Geolocation.currentLocation();
+	  if ( navigator.userAgent ) {
+	  	newEntry.client.userAgent = navigator.userAgent;
+	  	iphoneTest = newEntry.client.userAgent.slice(13,19);
+	  }
 	},
 
 	addLoader : function() {
@@ -29,29 +34,25 @@ mapHelpers = {
 		body.classList.remove('loading');
 	},
 
-	geoFindMe : function(e) {
+	geoFindMe : function() {
 		if (!navigator.geolocation) {
 	    var errors = document.getElementById("errors");errors.innerHTML = "<p>Geolocation is not supported by your browser</p>";
-	  } else if (Geolocation.currentLocation() !== null) {
+	    return;
+	  }
+	  // if location found start initial found
+	  if (Geolocation.latLng()) {
 	  	mapHelpers.showStartingModal();
 	  	mapHelpers.removeLoader();
-	  	var p = Geolocation.currentLocation(),
-	  			latlng = Geolocation.latLng(),
+	  	var latlng = Geolocation.latLng(),
 					lat = latlng.lat,
 					lng = latlng.lng;
-	  	var geoOptions = {
-				enableHighAccuracy: true,
-				maximumAge        : 0,
-				timeout           : 20000
-			};
 			map.panTo([lat,lng]);
-			mapHelpers.initialFound(p);
+			mapHelpers.initialFound();
 	    // watch = navigator.geolocation.watchPosition(mapHelpers.geoSuccess, mapHelpers.geoError, geoOptions);
 	  } else {
-	  	window.setTimeout(mapHelpers.geoFindMe, 3000);
-	  	var e = Geolocation.error();
-	  	if (e) {
-	  		mapHelpers.geoError(e);
+	  	window.setTimeout(mapHelpers.geoFindMe, 2000);
+	  	if (Geolocation.error()) {
+	  		mapHelpers.geoError(Geolocation.error());
 	  	}
 	  }
 	},
@@ -68,7 +69,8 @@ mapHelpers = {
 		}
   },
 
-  initialFound : function(p) {
+  initialFound : function() {
+  	var p = Geolocation.currentLocation();
   	initalLocation = false;
   	// initial postion
   	newEntry.initialL = turf.point([p.coords.longitude,p.coords.latitude], {
@@ -91,12 +93,26 @@ mapHelpers = {
 	  userMarker = L.circleMarker( [p.coords.latitude,p.coords.longitude], {
 	    className : 'current-location-marker',
 	    clickable : false,
-	    radius : 10
+	    radius : 8
 	  }).addTo(map);
 	  userPathLayer.addTo(map);
-	  window.setTimeout( function() {
-	  	interval = Meteor.setInterval(mapHelpers.positionUpdate, 10000);
-	  }, 3000 );
+	  mapHelpers.leaveBuffer();
+  },
+
+  leaveBuffer : function() {
+  	var p = Geolocation.currentLocation();
+  	map.panTo([p.coords.latitude,p.coords.longitude]);
+  	userMarker.setLatLng([p.coords.latitude,p.coords.longitude]);
+  	mapHelpers.getCurrentLocation(p);
+  	var privybuff = privyBuffer.features[0];
+	  var point = turf.point([p.coords.longitude,p.coords.latitude]);
+	  if ( mapHelpers.insidePrivyBuffer(point, privybuff) ) {
+	  	console.log('still inside privacy buffer');
+	  	privyTimeout = Meteor.setTimeout(mapHelpers.leaveBuffer, 5000);
+	  } else {
+	  	Meteor.clearTimeout(privyTimeout);
+	  	interval = Meteor.setInterval(mapHelpers.positionUpdate, 8000);
+	  }
   },
 
   getCurrentLocation : function(p) {
@@ -112,18 +128,11 @@ mapHelpers = {
   	// update marker
   	userMarker.setLatLng([p.coords.latitude,p.coords.longitude]);
   	mapHelpers.getCurrentLocation(p);
-	  // Check privacy buffer
-	  var privybuff = privyBuffer.features[0];
-	  var point = turf.point([p.coords.longitude,p.coords.latitude]);
-	  if ( mapHelpers.insidePrivyBuffer(point, privybuff) ) {
-	    console.log('still inside privacy buffer');
-	  } else {
-	    mapHelpers.pathUpdate(p);
-	    // Test if inside school buffer, if so route will end
-		  if (schoolBuffer) {
-		    var schbuff = schoolBuffer.features[0];
-		    schoolHelpers.insideSchoolBuffer(point, schbuff);
-		  }
+	  mapHelpers.pathUpdate(p);
+    // Test if inside school buffer, if so route will end
+	  if (schoolBuffer) { // false until set true in school query
+	    var schbuff = schoolBuffer.features[0];
+	    schoolHelpers.insideSchoolBuffer(p, schbuff);
 	  }
 	},
 
@@ -175,8 +184,11 @@ mapHelpers = {
 	},
 
 	clearWatch : function() {
-	  if (watch !== undefined) {
+	  if (watch != undefined) {
 	    navigator.geolocation.clearWatch(watch);
+	  }
+	  if (privyTimeout != null) {
+	  	Meteor.clearInterval(privyTimeout);
 	  }
 	  Meteor.clearInterval(interval);
 	  // reset inital location
@@ -189,11 +201,10 @@ mapHelpers = {
 	    navigator.geolocation.clearWatch(watch);
 	  }
 	  mapHelpers.geoFindMe();
-    mapHelpers.getIP();
 	},
 
 	addDef : function() {
-	  defMarker.setLatLng(userMarker.getLatLng())
+	  defMarker.setLatLng(map.getCenter())
 	      .addTo(map)
 	      .openPopup()
 	  mapHelpers.startForm();
@@ -348,9 +359,6 @@ mapHelpers = {
 	newUserPath : function() {
 		userPathLayer.setLatLngs([]);
 		var cp = Geolocation.latLng();
-		newEntry = {
-			userSpeed : []
-		};
 		if (cp !== null) {
 			var p = turf.point([cp.lng,cp.lat]);
 			// buffer for privacy
@@ -376,10 +384,8 @@ mapHelpers = {
 
 	getIP : function() {
 		$.get("http://ipinfo.io", function(response) {
-    	newEntry.client = {
-    		ip : response.ip,
-    		loc : response.loc
-    	};
+    	newEntry.client.ip = response.ip,
+    	newEntry.client.loc = response.loc
 		}, "jsonp");
 	},
 
@@ -708,13 +714,7 @@ drawHelpers = {
 	},
 
 	createLine : function(layer, update) {
-	  var c = [];
-	  for (var i = 0, l = layer._latlngs.length; i < l; i++) {
-	    var clat = layer._latlngs[i].lat,
-	        clng = layer._latlngs[i].lng;
-	    c.push([clng,clat]);
-	  }
-	  var ls = turf.linestring(c, {
+	  var ls = turf.linestring(layer.getLatLngs(), {
 	    name : 'Drawn Path',
 	    time : Firebase.ServerValue.TIMESTAMP
 	  });

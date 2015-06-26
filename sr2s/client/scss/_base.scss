@@ -120,12 +120,12 @@ body.loading {
 
 	#loader {
 		display: block;
-		width: 100px;
-	  height: 40px;
-	  margin: -20px 0 0 -50px;
+		width: 50%;
+	  height: 60px;
+	  margin: -40px 0 0 0;
 	  position: fixed;
 	  top: 50%;
-	  left: 50%;
+	  left: 25%;
 	  z-index: 999;
 
 	  &:after {
@@ -140,27 +140,27 @@ body.loading {
 	  }
 
 	  div {
-			width: 20px;
-		  height: 20px;
+			width: 25px;
+		  height: 25px;
 			background: $approve;
 		  border-radius: 50%;
 		  position: absolute;
 		}
 
 		#d1 {
-			@include vendor-prefix(animation, loader 2s linear infinite);
+			@include vendor-prefix(animation, loader 3s linear infinite);
 		}
 		#d2 {
-			@include vendor-prefix(animation, loader 2s linear infinite -.4s);
+			@include vendor-prefix(animation, loader 3s linear infinite -.6s);
 		}
 		#d3 {
-			@include vendor-prefix(animation, loader 2s linear infinite -.8s);
+			@include vendor-prefix(animation, loader 3s linear infinite -1.2s);
 		}
 		#d4 {
-			@include vendor-prefix(animation, loader 2s linear infinite -1.2s);
+			@include vendor-prefix(animation, loader 3s linear infinite -1.8s);
 		}
 		#d5 {
-			@include vendor-prefix(animation, loader 2s linear infinite -1.6s);
+			@include vendor-prefix(animation, loader 3s linear infinite -2.4s);
 		}
 	}
 

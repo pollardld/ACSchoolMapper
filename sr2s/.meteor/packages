@@ -5,11 +5,9 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
-insecure
 jquery
 mdg:camera
 iron:router
 kevohagan:sweetalert
-mdg:reload-on-resume
 mdg:geolocation
+meteorhacks:kadira

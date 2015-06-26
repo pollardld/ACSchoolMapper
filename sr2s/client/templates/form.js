@@ -52,7 +52,7 @@ Template.form.events({
     if ( mapHelpers.isPath() ) {
       mapHelpers.newUserPath();
     }
-    mapHelpers.geoFindMe(e);
+    mapHelpers.geoFindMe();
     mapHelpers.getIP();
     mapHelpers.noSleeping();
   }
