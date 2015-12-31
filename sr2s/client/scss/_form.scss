@@ -51,6 +51,12 @@ $input_focus_bg: $green;
 	width: 80%;
 }
 
+.select2-container {
+	li {
+		margin-bottom: 0;
+	}
+}
+
 .school {
 
 	select {

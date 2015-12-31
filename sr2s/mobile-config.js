@@ -5,7 +5,7 @@ App.info({
   author: 'Alta Planning + Design',
   email: 'davidpollard@altaplanning.com',
   website: 'http://sr2s.meteor.com',
-  version: '0.1.3'
+  version: '0.3.0'
 });
 
 App.accessRule('*');

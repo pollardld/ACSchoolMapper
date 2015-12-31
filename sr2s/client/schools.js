@@ -649,5 +649,190 @@ schools = {
 	 	name : 'Phoebe Apperson Hearst Elementary',
 		way : 'way/47389511/full',
 		id : '6117600'
+	},
+	academyOfAlameda: {
+		name: 'Academy of Alameda',
+		way: 'way/301425029/full',
+		id: '221075'
+	},
+	rubyBridgesElementary: {
+		name: 'Ruby Bridges Elementary',
+		way: '/way/91234879/full',
+		id: '2111056'
+	},
+	longfelloMiddle: {
+		name: 'Longfellow Middle',
+		way: '/way/28406379/full',
+		id: '227628'
+	},
+	leconteElementary: {
+		name: 'LeConte Elementary',
+		way: '/way/233173242/full',
+		id: '226981'
+	},
+	berkwoodHedgeSchool: {
+		name: 'Berkwood Hedge School',
+		way: '/way/203290644/full',
+		id: '1676000'
+	},
+	oxfordElementary: {
+		name: 'Oxford Elementary',
+		way: '/way/30910551/full',
+		id: '230184'
+	},
+	greenLeaf: {
+		name: 'Greenleaf K-8',
+		way: '/way/27293436/full',
+		id: '27293436'
+	},
+	globalFamilyElementary: {
+		name: 'Global Family Elementary',
+		way: '/way/27209216/full',
+		id: '27209216'
+	},
+	futuresElementary: {
+		name: 'Futures At Lockwood Elementary',
+		way: '/way/53293096/full',
+		id: '53293096'
+	},
+	enCompassAcademy: {
+		name: 'EnCompass Academy',
+		way: '/way/27946043/full',
+		id: '27946043'
+	},
+	fruitvaleElementary: {
+		name: 'Fruitvale Elementary',
+		way: '/way/27293425/full',
+		id: '27293425'
+	},
+	laEscuelitatk8: {
+		name: 'La Escuelita TK-8',
+		way: '/way/27209414/full',
+		id: '27209414'
+	},
+	placeAtPrescott: {
+		name: 'Place @ Prescott',
+		way: '/way/27204443/full',
+		id: '231033'
+	},
+	unitedForSuccessAcademy: {
+		name: 'United For Success Academy',
+		way: '/way/27226271/full',
+		id: '27226271'
+	},
+	bridgesAcademy: {
+		name: 'Bridges Academy',
+		way: '/way/27293365/full',
+		id: '27293365'
+	},
+	parkerElementary: {
+		name: 'Parker Elementary',
+		way: '/way/27946480/full',
+		id: '27946480'
+	},
+	learningWithoutLimits: {
+		name: 'Learning Without Limits',
+		way: '/way/27209216/full',
+		id: '27209216'
+	},
+	garfieldElementaryOakland: {
+		name: 'Garfield Elementary',
+		way: '/way/27209109/full',
+		id: '224065'
+	},
+	hooverElementary: {
+		name: 'Hoover Elementary',
+		way: '/way/27203843/full',
+		id: '27203843'
+	},
+	sankofaAcademy: {
+		name: 'Sankofa Academy',
+		way: '/way/27204479/full',
+		id: '27204479'
+	},
+	stonehurstEsperanzaElementary: {
+		name: 'Stonehurst/Esperanza Elementary',
+		way: '/way/27946184/full',
+		id: '27946184'
+	},
+	montclairElementary: {
+		name: 'Montclair Elementary',
+		way: '/way/22916692/full',
+		id: '22916692'
+	},
+	cesarChavezMiddleSchool: {
+		name: 'Cesar Chavez Middle School',
+		way: '/way/79430607/full',
+		id: '1692892'
+	},
+	schaferParkElementary: {
+		name: 'Schafer Park Elementary',
+		way: '/way/382345013/full',
+		id: '382345013'
+	},
+	johnMuirMiddleSchool: {
+		name: 'John Muir Middle School',
+		way: '/way/45285127/full',
+		id: '45285127'
+	},
+	jeffersonElementary: {
+		name: 'Jefferson Elementary',
+		way: '/way/382346296/full',
+		id: '382346296'
+	},
+	colonialAcresSchool: {
+		name: 'Colonial Acres School',
+		way: '/way/103386330/full',
+		id: '221401'
+	},
+	washingtonManorMiddleSchool: {
+		name: 'Washington Manor Middle School',
+		way: '/way/313350522/full',
+		id: '237284'
+	},
+	bayElementary: {
+		name: 'Bay Elementary',
+		way: '/way/40325176/full',
+		id: '218753'
+	},
+	hesperianElementary: {
+		name: 'Hesperian Elementary',
+		way: '/way/103386335/full',
+		id: '225212'
+	},
+	jHaleyDurhamElementary: {
+		name: 'J. Haley Durham Elementary',
+		way: '/way/291934082/full',
+		id: '222748'
+	},
+	greenElementary: {
+		name: 'Green Elementary',
+		way: '/way/382350400/full',
+		id: '382350400'
+	},
+	marylinAvenueSchool: {
+		name: 'Marylin Avenue School',
+		way: '/way/382350922/full',
+		id: '382350922'
+	},
+	berkeleyHighSchool: {
+		name: 'Berkeley High School',
+		way: '/way/27762630/full',
+		id: '219064'
+	},
+	sanLeandroHighSchool: {
+		name: 'San Leandro High School',
+		way: '/way/382351521/full',
+		id: '382351521'
+	},
+	americanHighSchool: {
+		name: 'American High School',
+		way: '/way/39159601/full',
+		id: '39159601'
+	},
+	granadaHigh: {
+		name: 'Granada High',
+		way: '/way/35577836/full',
+		id: '35577836'
 	}
 };
